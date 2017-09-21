@@ -3,6 +3,9 @@ from flaskexample import app
 from flask import request
 from flask import jsonify
 
+import matplotlib
+matplotlib.use('Agg')
+
 import pandas as pd
 import numpy as np
 
