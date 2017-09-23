@@ -34,19 +34,15 @@
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-<br><br>
-    <div class="container">
+<div class="container">
+    <h2>Visualizing your company's digital communications</h2>
     <div class="starter-template">
-        <h2>Visualizing your company's digital communications</h2>
         <p></p>
         <p></p>
-        <img src='/static/sentiments-over-time.png'></img>
+        <img src='/static/sentiments-over-time.png' align = 'middle'></img>
         <p></p>
         <p></p>
-        <img src='/static/12-tsne.png'></img>
+        <img src='/static/12-tsne.png' align = 'midde'></img>
         <p></p>
     </div>
 
@@ -55,34 +51,38 @@
       <form  action="/output" method="GET">
         <div class="form-group">
         </div>
-
         <div>
+            <label for="team">Team/Department:</label> 
             <select name= team method="GET" action="/">
-                    <option value = 'Team'>Team/Department</option>
+                    <option value = 'Team'>--select--</option>
             </select>
-            
+            <p></p>
+            <p></p>
+            <label for="person">Sender:</label> 
             <select name= person method="GET" action="/">
-                    <option value = 'Name'>Name of email sender</option>
+                    <option value = 'Name'>--select--</option>
                 {% for person in people %}
                     <option value= "{{person}}">{{person}}</option>
                 {% endfor %}
             </select>
+            <p></p>
+            <p></p>
+            <label for="receiver">Recipient(s):</label>
             <select name= receiver method="GET" action="/">
-                    <option value = 'Recipient'>Recipient(s)</option>
+                    <option value = 'Recipient'>--select--</option>
                     <option value = 'Recipient'>All</option>
             </select>
-          <button type="submit" class="btn btn-default btn">Submit</button>
             <p></p>
             <p></p>
-        </div>
+          <button type="submit" class="btn btn-info btn">Submit</button>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> 
+<script src="static/js/bootstrap.min.js"></script> 
 
-      </form>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
-
-  </div> <!-- /.container-->
+    </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -94,5 +94,6 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+
   </body>
 </html>

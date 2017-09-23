@@ -42,8 +42,6 @@
         <img src={{tsne}}>
         <p></p>
         <p></p>
-        <img src={{indiv}}>
-        <p></p>
     </div>
 
     <div class = "container">
@@ -52,21 +50,31 @@
         <div class="form-group">
         </div>
         <div>
+            <label for="team">Team/Department:</label> 
             <select name= team method="GET" action="/">
-                    <option value = 'Team'>Team/Department</option>
+                    <option value = 'Team'>--select--</option>
             </select>
-            
+            <p></p>
+            <p></p>
+            <label for="person">Sender:</label> 
             <select name= person method="GET" action="/">
-                    <option value = 'Name'>Name of email sender</option>
+                    <option value = 'Name'>--select--</option>
                 {% for person in people %}
                     <option value= "{{person}}">{{person}}</option>
                 {% endfor %}
             </select>
+            <p></p>
+            <p></p>
+            <label for="receiver">Recipient(s):</label>
             <select name= receiver method="GET" action="/">
-                    <option value = 'Recipient'>Recipient(s)</option>
+                    <option value = 'Recipient'>--select--</option>
                     <option value = 'Recipient'>All</option>
             </select>
-          <button type="submit" class="btn btn-default btn">Submit</button>
+            <p></p>
+            <p></p>
+          <button type="submit" class="btn btn-info btn-sm">Submit</button>
+            <p></p>
+            <p></p>
             <p></p>
             <p></p>
         </div>
