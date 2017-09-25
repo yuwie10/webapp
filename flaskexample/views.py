@@ -110,9 +110,9 @@ def output():
     ax.set_xlim([dt(1999, 12, 20), dt(2002, 2, 28)]);
     ax.set_ylim(-0.5, 0.5);
 
-    plt.title('Sentiments over time of emails sent by {}'.format(name), fontsize = 17);
-    plt.xlabel('Date (Year-Quarter)', fontsize = 14, labelpad = 15);
-    plt.ylabel(y_label, fontsize = 12, labelpad = 15);
+    plt.title('Sentiments over time of emails sent by {}'.format(name), fontsize = 18, y = 1.1);
+    plt.xlabel('Date (Year-Quarter)', fontsize = 17, labelpad = 15);
+    plt.ylabel(y_label, fontsize = 17, labelpad = 20);
 
     #axis ticks
     plt.tick_params(axis = 'both', which = 'major', 
