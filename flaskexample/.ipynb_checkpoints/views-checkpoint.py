@@ -64,7 +64,7 @@ def output():
     col = 'compound'
     
     fig, ax = plt.subplots();
-    fig.set_size_inches(8, 6)
+    fig.set_size_inches(10, 8)
     
     #create necessary dfs, etc. for plots
     over_time = text_features.set_index(pd.DatetimeIndex(text_features['date']))
@@ -108,20 +108,26 @@ def output():
 
     plt.gcf().autofmt_xdate();
     ax.set_xlim([dt(1999, 12, 20), dt(2002, 2, 28)]);
-    ax.set_ylim(-0.25, 0.6);
+    ax.set_ylim(-0.5, 0.5);
 
     plt.title('Sentiments over time of emails sent by {}'.format(name), fontsize = 17);
-    plt.xlabel('Date (Year-Month)', fontsize = 14, labelpad = 15);
+    plt.xlabel('Date (Year-Quarter)', fontsize = 14, labelpad = 15);
     plt.ylabel(y_label, fontsize = 12, labelpad = 15);
 
     #axis ticks
     plt.tick_params(axis = 'both', which = 'major', 
                     labelsize = 13, labelleft = 'off');
 
-    lgd = plt.legend(bbox_to_anchor = (0.99, 0.99), 
-                     loc = 'upper right', 
+    x_pos = ax.get_xticks()
+    x_labels = np.array(['2000-Q1', '2000-Q2', '2000-Q3', '2000-Q4', 
+                        '2001-Q1', '2001-Q2', '2001-Q3', '2001-Q4', 
+                        '2002-Q1'])
+    plt.xticks(x_pos, x_labels)
+
+    lgd = plt.legend(bbox_to_anchor = (0.99, 0.02), 
+                     loc = 'lower right', 
                      borderaxespad = 0.,
-                     fontsize = 13,
+                     fontsize = 15,
                      markerscale = 2);
     
     rand = random.randint(0, 100000)
@@ -145,7 +151,7 @@ def output():
     g = sns.lmplot('dimension 1', 'dimension 2', tsne_df,
                 hue = 'cluster_labels', legend = False,
                 fit_reg = False, palette = colors, 
-                size = 8, scatter_kws = {'alpha':0.9, 's':2})
+                size = 9, scatter_kws = {'alpha':0.9, 's':2})
 
     #plot individual's emails
     indiv_pts = text_features[text_features['sender'] == email].index
@@ -165,15 +171,14 @@ def output():
                     markerscale = 2.4,
                     handletextpad = 0.2)
 
-    lgd.get_frame().set_alpha(0.2);
+    lgd.get_frame().set_alpha(1);
 
     plt.savefig('flaskexample/static/tsne{}.png'.format(rand), 
                 bbox_extra_artists = (lgd,), bbox_inches = 'tight');
     
     
-    return render_template("output.html", 
+    return render_template('output.html', 
                            sentiments='/static/image{}.png'.format(rand), 
                            tsne = '/static/tsne{}.png'.format(rand), 
-                           #indiv = '/static/indiv{}.png'.format(rand), 
                            people = people)
 
