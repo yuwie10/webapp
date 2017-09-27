@@ -51,11 +51,11 @@ def output():
     #people = sorted(list(sender_name_to_email.keys()))
     
     name_to_email = {
-        'Eric Bass':'eric.bass@enron.com',
-        'John Arnold':'john.arnold@enron.com',
-        'Phillip K. Allen':'phillip.allen@enron.com',
-        'Sally Beck':'sally.beck@enron.com',
-        'Shona Wilson':'shona.wilson@enron.com'
+        'John A. Doe':'eric.bass@enron.com',
+        'John B. Doe':'john.arnold@enron.com',
+        'John C. Doe':'phillip.allen@enron.com',
+        'Jane A. Doe':'sally.beck@enron.com',
+        'Jane B. Doe':'shona.wilson@enron.com'
     }
     
     people = sorted(list(name_to_email.keys()))
